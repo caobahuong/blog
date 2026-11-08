@@ -9,23 +9,23 @@ excerpt: EasyPOS tăng khách đột biến nhờ quy định hóa đơn điện
 
 > **LƯU Ý:** Những gì nói dưới đây chỉ là góc nhìn chủ quan (có phần bi quan) của tác giả. Mọi thứ đều nằm ở mức thuyết âm mưu.
 
-Tháng 5/2025, thị trường bán lẻ và dịch vụ tiêu dùng tại Việt Nam bước vào giai đoạn rà soát gắt gao khi thời hạn bắt buộc áp dụng hóa đơn điện tử (HĐĐT) khởi tạo từ máy tính tiền theo Nghị định 123/2020/NĐ-CP và Nghị định 70/2025/NĐ-CP chính thức kích hoạt, đi kèm chế tài xử phạt hành chính theo Nghị định 125/2020/NĐ-CP và yêu cầu xuất HĐĐT theo từng lần bơm xăng dầu. Dưới áp lực tuân thủ pháp lý mang tính cưỡng chế này, EasyPOS — phần mềm quản lý bán hàng trong hệ sinh thái số Softdreams, tích hợp cùng EasyInvoice và EasyBooks — ghi nhận lượng đăng ký mới nhảy vọt lên mức đỉnh {{~98}}. {{~262}}.
+Tháng 5/2025, thị trường bán lẻ và dịch vụ tiêu dùng tại Việt Nam bước vào giai đoạn rà soát gắt gao khi thời hạn bắt buộc áp dụng hóa đơn điện tử (HĐĐT) khởi tạo từ máy tính tiền theo Nghị định 123/2020/NĐ-CP và Nghị định 70/2025/NĐ-CP chính thức kích hoạt, đi kèm chế tài xử phạt hành chính theo Nghị định 125/2020/NĐ-CP và yêu cầu xuất HĐĐT theo từng lần bơm xăng dầu. Dưới áp lực tuân thủ pháp lý mang tính cưỡng chế này, EasyPOS — phần mềm quản lý bán hàng trong hệ sinh thái số Softdreams, tích hợp cùng EasyInvoice và EasyBooks — ghi nhận lượng đăng ký mới nhảy vọt lên mức đỉnh {{#98}}. {{#262}}.
 
 Tuy nhiên, chưa đầy một năm sau, bức tranh vận hành đảo chiều hoàn toàn: doanh thu suy giảm, áp lực tài chính gia tăng khi số lượng khách hàng rời bỏ bắt đầu vượt tốc độ gia nhập mới.
 
 Hai hiện tượng này thực chất có mối quan hệ nhân quả mật thiết và cùng bắt nguồn từ một lý do: quy mô tăng trưởng nóng được thúc đẩy bởi áp lực pháp lý bên ngoài nhiều hơn là nhu cầu tự thân của khách hàng. Cú hích tuân thủ thuế tuy ồ ạt kéo một lượng lớn người dùng vào hệ sinh thái, nhưng cấu trúc khách hàng này lại phân hóa sâu sắc. Một bộ phận đăng ký thuần túy mang tính đối phó để hợp thức hóa nghĩa vụ thuế nên dừng hoạt động ngay sau khi hoàn tất thủ tục. Dù vậy, đây về bản chất vẫn là tệp khách hàng tiềm năng có thể tạo ra doanh thu định kỳ, song tỷ lệ chuyển đổi thành người dùng thường xuyên lại rất thấp do ứng dụng chưa giải quyết trọn vẹn các bài toán vận hành thực tế tại điểm bán, khiến họ nhanh chóng rời bỏ chỉ sau một thời gian ngắn sử dụng.
 
-{{~566}}
+{{#566}}
 
 ## Yếu tố ngoại sinh
 
 Có ba áp lực từ bên ngoài. Riêng chúng chỉ làm doanh thu đi ngang, chưa đủ để gây lỗ ròng.
 
-**1. Cú hích pháp lý: tăng trưởng mượn tạm.** Nghị định 70/2025/NĐ-CP (ban hành 20/03/2025, hiệu lực 01/06/2025) bắt buộc hộ kinh doanh có doanh thu từ 1 tỷ đồng/năm xuất hóa đơn điện tử từ máy tính tiền [1][2][3]. Đăng ký mới của EasyPOS {{~46}} [9]. Nhưng đây không phải nhu cầu thật, vì bốn lý do:
+**1. Cú hích pháp lý: tăng trưởng mượn tạm.** Nghị định 70/2025/NĐ-CP (ban hành 20/03/2025, hiệu lực 01/06/2025) bắt buộc hộ kinh doanh có doanh thu từ 1 tỷ đồng/năm xuất hóa đơn điện tử từ máy tính tiền [1][2][3]. Đăng ký mới của EasyPOS {{#46}} [9]. Nhưng đây không phải nhu cầu thật, vì bốn lý do:
 
-- **Khách mua vì lo trước.** Đăng ký tăng vọt khi nghị định chưa có hiệu lực, cùng tháng với Nghị quyết 198/2025/QH15 chốt bỏ thuế khoán từ 01/01/2026 [4][5][6]. {{~81}}, nhiều khả năng dưới ngưỡng 1 tỷ nên chưa bị bắt buộc [9].
-- **Qua mốc thì nhu cầu tụt nhanh.** {{~89}} Tháng 7 cũng là lúc Nghị định 117/2025/NĐ-CP có hiệu lực [7][8]. Đăng ký có tăng lại cuối năm {{~51}}, nhiều khả năng do sát hạn bỏ thuế khoán, nhưng đây là suy luận của người viết, chưa có nguồn xác nhận.
-- **Mua dồn thì hết hạn dồn.** Gói chủ yếu kéo dài 12 tháng nên {{~47}}, và đợt tiếp theo nằm ở tháng 11-12/2026. Đây mới là tương quan về thời điểm; muốn khẳng định nhân quả cần tách khách theo ngành và theo doanh thu quanh ngưỡng 1 tỷ.
+- **Khách mua vì lo trước.** Đăng ký tăng vọt khi nghị định chưa có hiệu lực, cùng tháng với Nghị quyết 198/2025/QH15 chốt bỏ thuế khoán từ 01/01/2026 [4][5][6]. {{#81}}, nhiều khả năng dưới ngưỡng 1 tỷ nên chưa bị bắt buộc [9].
+- **Qua mốc thì nhu cầu tụt nhanh.** {{#89}} Tháng 7 cũng là lúc Nghị định 117/2025/NĐ-CP có hiệu lực [7][8]. Đăng ký có tăng lại cuối năm {{#51}}, nhiều khả năng do sát hạn bỏ thuế khoán, nhưng đây là suy luận của người viết, chưa có nguồn xác nhận.
+- **Mua dồn thì hết hạn dồn.** Gói chủ yếu kéo dài 12 tháng nên {{#47}}, và đợt tiếp theo nằm ở tháng 11-12/2026. Đây mới là tương quan về thời điểm; muốn khẳng định nhân quả cần tách khách theo ngành và theo doanh thu quanh ngưỡng 1 tỷ.
 - **Mức trần chịu thuế được nâng dần, nên một phần khách mất lý do dùng.** Lúc đăng ký ồ ạt, ngưỡng doanh thu hộ kinh doanh phải nộp thuế còn thấp: 200 triệu đồng/năm từ 01/01/2026 theo Luật Thuế GTGT 2024 [14]. Nhiều hộ nhỏ lo bị đánh thuế và mua phần mềm để phòng thân. Sau đó ngưỡng được nâng lên 500 triệu (Quốc hội thông qua ngày 10/12/2025 [15]) rồi 1 tỷ đồng (Nghị định 141/2026/NĐ-CP, ban hành 29/04/2026 [16]). Hộ dưới 1 tỷ không phải nộp thuế GTGT, thuế TNCN và chưa bắt buộc dùng hóa đơn điện tử [17], nên không còn nghĩa vụ để giữ phần mềm. Đây là giả thuyết khớp với dữ liệu, chưa kiểm chứng vì chưa tách khách theo doanh thu.
 
 **2. Thị trường tự co lại.** Cú hích pháp lý đẩy cả thị trường đi mua phần mềm, nhưng EasyPOS không đứng đầu thị trường. Khi một chủ cửa hàng nghĩ đến phần mềm bán hàng, những cái tên đến trước như KiotViet hay Sapo vẫn bật ra trước EasyPOS, nên dù làn sóng lớn, phần khách EasyPOS với tới được chỉ là một phần nhỏ của nó. Khi phần lớn cửa hàng trong diện bắt buộc đã chọn xong một phần mềm, dư địa tự nhiên còn lại càng hết dần. Chính sách đẩy hộ nhỏ lẻ lên mô hình có đăng ký còn thu hẹp đúng tệp khách siêu nhỏ mà EasyPOS định giá rẻ để nhắm tới. Kết quả là hai gọng kìm: khó tìm khách mới thay cho nhóm sắp rời đi, và mất doanh thu định kỳ từ khách đóng cửa giữa chừng.
@@ -34,9 +34,9 @@ Kinh tế chung năm 2026 không suy thoái: GDP quý 3 tăng 9,95% [11], bán l
 
 - **Lợi nhuận bị ép.** Một phân tích của CafeBiz cho rằng doanh thu hộ kinh doanh tăng nhưng lợi nhuận giảm vì chi phí tăng và chi phí tuân thủ lớn hơn [12]. Đây là nhận định, chưa phải thống kê chính thức.
 - **Nhiều hộ ngừng kinh doanh.** Trong 10 tháng đầu năm, cơ quan thuế đã chấm dứt mã số thuế của 634.049 hộ và cá nhân kinh doanh [13]. Con số này gồm cả đợt làm sạch mã số thuế, nên không phải toàn bộ là cửa hàng vừa đóng.
-- **Khách EasyPOS ngừng bán.** {{~144}} [9]. Dữ liệu không cho biết lý do (đóng cửa, đổi phần mềm hay bỏ POS).
+- **Khách EasyPOS ngừng bán.** {{#144}} [9]. Dữ liệu không cho biết lý do (đóng cửa, đổi phần mềm hay bỏ POS).
 
-**3. Sàn thương mại điện tử đổi cách chọn nhà bán.** Shopee và TikTok Shop ưu tiên làm việc trực tiếp với nhà sản xuất, bỏ qua buôn trung gian, và tăng phí sàn; theo đối soát nội bộ, phí sàn ăn vào {{~27}}. Nhóm trung gian vốn là đối tượng tự nhiên cần phần mềm POS đang thu hẹp.
+**3. Sàn thương mại điện tử đổi cách chọn nhà bán.** Shopee và TikTok Shop ưu tiên làm việc trực tiếp với nhà sản xuất, bỏ qua buôn trung gian, và tăng phí sàn; theo đối soát nội bộ, phí sàn ăn vào {{#27}}. Nhóm trung gian vốn là đối tượng tự nhiên cần phần mềm POS đang thu hẹp.
 
 Cả ba yếu tố đều nằm ngoài tầm kiểm soát của công ty. Chúng giải thích vì sao doanh thu ngừng tăng, nhưng không giải thích vì sao công ty lỗ ròng và khách mới rời đi nhanh hơn khách mới vào. Đó là chuyện của phần nội sinh.
 
@@ -51,22 +51,22 @@ Phần dưới đây là những gì nằm trong tay công ty, không thể đ�
 
 **2. Hệ sinh thái chưa gắn chặt, nên khách dễ thoát ra.** Sự liên kết giữa EasyPOS và EasyInvoice/EasyBooks hiện mới dừng ở tầng giao diện và truyền dữ liệu cuối ngày, chưa chạm tới tầng dữ liệu gốc. Nếu khách chuyển sang KiotViet hay Sapo, các nền tảng đó cũng đã tích hợp sẵn API với chính EasyInvoice (hoặc Viettel, VNPT, MISA). Khi sản phẩm lõi của hệ sinh thái mở cửa tích hợp dễ dàng cho đối thủ của sản phẩm vệ tinh, lợi thế độc quyền hệ sinh thái tự bị triệt tiêu.
 
-Cần nói rõ đây là rủi ro về cấu trúc cần phòng ngừa trước, vì mức độ gắn bó hiện tại của EasyInvoice với EasyPOS thực ra không mỏng: {{~155}}. "Hào kinh tế" ở tầng hóa đơn đã có một phần, nhưng được xây trên một cấu trúc API có thể mở cho đối thủ bất cứ lúc nào nên mong manh hơn vẻ ngoài.
+Cần nói rõ đây là rủi ro về cấu trúc cần phòng ngừa trước, vì mức độ gắn bó hiện tại của EasyInvoice với EasyPOS thực ra không mỏng: {{#155}}. "Hào kinh tế" ở tầng hóa đơn đã có một phần, nhưng được xây trên một cấu trúc API có thể mở cho đối thủ bất cứ lúc nào nên mong manh hơn vẻ ngoài.
 
 Điểm yếu thật nằm ở tầng vận hành. Một hộ kinh doanh chỉ dùng EasyPOS để bán hàng và xuất hóa đơn máy tính tiền theo luật có cấu trúc dữ liệu rất mỏng: không quản lý kho sâu, không CRM, không công nợ phức tạp. Khi hết hạn gói hoặc gặp lỗi, họ chuyển sang phần mềm khác chỉ mất một buổi chiều cài lại menu, không hề thấy "đau" vì mất dữ liệu lịch sử. Gộp lại, đây không phải hai vấn đề riêng lẻ mà là một chiến lược hệ sinh thái đang tự triệt tiêu: EasyInvoice mở cho đối thủ, còn EasyPOS quá mỏng nên khách bỏ đi không tiếc. Khác với phần ngoại sinh, đây hoàn toàn là hệ quả của lựa chọn nội bộ.
 
-**3. Mở rộng theo một làn sóng tạm.** EasyPOS đã phản ứng với cú hích pháp lý như thể đó là tăng trưởng bền vững: khách tăng kéo doanh thu tăng, doanh thu tăng kéo nhân sự phình ra, nhân sự phình ra kéo chi phí vận hành tăng theo. Toàn bộ chuỗi này dựa trên giả định khách mới sẽ ở lại lâu dài. Nhưng với phần lớn khách mới, EasyPOS là "công cụ đối phó pháp lý" chứ không phải "công cụ quản trị kinh doanh": nhiều hộ ngại minh bạch hóa doanh thu vì lo bị tăng mức thuế khoán nên chỉ gõ vài đơn lấy lệ, hoặc tìm cớ phần mềm lỗi để quay về ghi sổ tay hoặc phần mềm khác. Số liệu khớp với giả thuyết này: ngay trong tháng đăng ký tăng vọt, {{~130}} [9].
+**3. Mở rộng theo một làn sóng tạm.** EasyPOS đã phản ứng với cú hích pháp lý như thể đó là tăng trưởng bền vững: khách tăng kéo doanh thu tăng, doanh thu tăng kéo nhân sự phình ra, nhân sự phình ra kéo chi phí vận hành tăng theo. Toàn bộ chuỗi này dựa trên giả định khách mới sẽ ở lại lâu dài. Nhưng với phần lớn khách mới, EasyPOS là "công cụ đối phó pháp lý" chứ không phải "công cụ quản trị kinh doanh": nhiều hộ ngại minh bạch hóa doanh thu vì lo bị tăng mức thuế khoán nên chỉ gõ vài đơn lấy lệ, hoặc tìm cớ phần mềm lỗi để quay về ghi sổ tay hoặc phần mềm khác. Số liệu khớp với giả thuyết này: ngay trong tháng đăng ký tăng vọt, {{#130}} [9].
 
 Hậu quả là công ty đọc sai tín hiệu. Nếu Product và Sale không tách bạch hai tệp **"mua để đối phó"** và **"mua để quản lý"**, họ sẽ tưởng churn là lỗi kỹ thuật, trong khi nhiều khách chưa từng có ý định dùng thật. Chính nội bộ còn làm con số này xấu hơn: một phần tài khoản không giao dịch đến từ việc đội sale tự tạo tài khoản demo hoặc dùng thử để chạy chỉ tiêu số lượng đăng ký. Tức một phần gốc rễ nằm ở cách đo hiệu suất đội kinh doanh, không chỉ ở hành vi khách hàng.
 
-**4. Sản phẩm không ổn định.** Với một cửa hàng hay quán ăn, POS là hệ thống mở liên tục 12–16 tiếng mỗi ngày, còn hóa đơn điện tử hay chữ ký số chỉ là thứ chạy ngầm phía sau. EasyPOS vì vậy đang đóng vai trò "vệ tinh thu phễu" chứ không phải "trung tâm giữ chân": khi công cụ dùng hàng giờ bị chậm, lỗi, khó dùng, khách sẽ bỏ cả gói sản phẩm, bất kể phần mềm hóa đơn hay kế toán phía sau tốt đến đâu. Dữ liệu tuổi thọ khách hàng cho thấy cửa sổ rủi ro nằm ở đầu: {{~130}}. Đó là hậu quả của trải nghiệm ban đầu không đủ tốt để tạo thói quen, chứ không phải sự xói mòn đều đặn theo thời gian. Có hai nguyên nhân cùng góp phần:
+**4. Sản phẩm không ổn định.** Với một cửa hàng hay quán ăn, POS là hệ thống mở liên tục 12–16 tiếng mỗi ngày, còn hóa đơn điện tử hay chữ ký số chỉ là thứ chạy ngầm phía sau. EasyPOS vì vậy đang đóng vai trò "vệ tinh thu phễu" chứ không phải "trung tâm giữ chân": khi công cụ dùng hàng giờ bị chậm, lỗi, khó dùng, khách sẽ bỏ cả gói sản phẩm, bất kể phần mềm hóa đơn hay kế toán phía sau tốt đến đâu. Dữ liệu tuổi thọ khách hàng cho thấy cửa sổ rủi ro nằm ở đầu: {{#130}}. Đó là hậu quả của trải nghiệm ban đầu không đủ tốt để tạo thói quen, chứ không phải sự xói mòn đều đặn theo thời gian. Có hai nguyên nhân cùng góp phần:
 
 - **Hệ thống không theo kịp tốc độ mở rộng.** Nhân sự mới được tuyển ồ ạt trong thời gian ngắn, thiếu kết nối với nhau, không có quy trình QA bài bản, khiến hệ thống quá tải liên tục vào giờ cao điểm, đúng lúc khách mới cần trải nghiệm ổn định nhất để quyết định có ở lại hay không.
 - **Người làm sản phẩm xa rời người dùng.** Nhiều lập trình viên code ra tính năng mà không biết thành quả tác động thế nào lên doanh thu, và không ít nhân viên trực tiếp xây dựng app lại không tự dùng app trong công việc hàng ngày. Khi không cảm nhận được nỗi đau của người dùng, tốc độ phát hiện và sửa lỗi tất yếu chậm lại.
 
 **5. Giá rẻ nhưng unit economics kém.** Mô hình định giá của EasyPOS vốn không có gì sai trên lý thuyết, nhưng trên thực tế lại thành gánh nặng. Mức giá 70–100k/tháng để cạnh tranh với KiotViet, Sapo chỉ sinh lời nếu đồng thời thỏa ba điều kiện: churn thấp, chi phí phục vụ khách hàng (support, onboarding, xử lý lỗi) thấp, và có khả năng upsell rõ ràng. Vì app không ổn định nên churn cao; vì churn cao nên công ty phải liên tục tìm khách mới bù vào chỗ trống; và vì phải liên tục tìm khách mới nên chi phí tìm kiếm khách hàng (CAC) không bao giờ được thu hồi đủ trước khi họ rời đi.
 
-Dấu vết của vòng lặp này hiện rõ trong chu kỳ gói cước 12 tháng: đúng một năm sau đợt đăng ký ồ ạt, {{~95}}. Dữ liệu hiện chưa tách được gói gia hạn khỏi gói mua mới nên đây là xu hướng gộp, chưa phải tỷ lệ tái ký chính xác. Dù vậy nó cho thấy phần lớn chi phí thu hút khách bỏ ra trong đợt sóng đó chưa kịp hoàn vốn thì khách đã rời đi ngay tại điểm tái ký đầu tiên. Đây là vòng lặp tự ăn vào chính mình, và là lý do một đợt tăng trưởng tưởng như tích cực lại kết thúc bằng lỗ ròng.
+Dấu vết của vòng lặp này hiện rõ trong chu kỳ gói cước 12 tháng: đúng một năm sau đợt đăng ký ồ ạt, {{#95}}. Dữ liệu hiện chưa tách được gói gia hạn khỏi gói mua mới nên đây là xu hướng gộp, chưa phải tỷ lệ tái ký chính xác. Dù vậy nó cho thấy phần lớn chi phí thu hút khách bỏ ra trong đợt sóng đó chưa kịp hoàn vốn thì khách đã rời đi ngay tại điểm tái ký đầu tiên. Đây là vòng lặp tự ăn vào chính mình, và là lý do một đợt tăng trưởng tưởng như tích cực lại kết thúc bằng lỗ ròng.
 
 ## Lộ trình đề xuất: ba giai đoạn theo thứ tự ưu tiên
 
@@ -90,7 +90,7 @@ Về phần cứng, chưa cần xây hệ sinh thái như đối thủ ngay. Vi�
 
 **2. Đo trước khi sửa, và theo dõi riêng nhóm khách mới.** Dữ liệu tuổi thọ cho thấy rủi ro lớn nhất nằm ở sáu tháng đầu. Vì vậy cần đo trực tiếp trải nghiệm của merchant trong 30–90 ngày đầu: tỷ lệ lỗi, tốc độ phản hồi, tỷ lệ khách có bill đầu tiên, và tỷ lệ bỏ ở từng bước (cài đặt, tạo menu, in bill). Đồng thời phân loại ticket hỗ trợ theo nhóm lỗi. Đây cũng là cách kiểm chứng các giả thuyết trong phần chẩn đoán, như việc khách bỏ vì thiết kế khó làm quen hay chỉ vì mua để đối phó. Ngưỡng mục tiêu nên đặt sau khi có số đo nền, không đặt trước.
 
-**3. Tách khách hiện có và giữ đúng nhóm đáng giữ.** Tách tệp khách theo doanh thu và hành vi: nhóm đang bán thật, nhóm đã ngừng bill, nhóm chưa từng xuất bill. Đợt hết hạn tháng 11-12/2026 {{~52}} là phép thử gần nhất. Nguồn lực chăm sóc và gia hạn nên dồn vào nhóm còn đang bán, không đốt tiền để níu nhóm đã ngừng. Việc tách này cũng giúp kiểm chứng giả thuyết về ngưỡng 1 tỷ: nếu nhóm bỏ đi tập trung ở hộ dưới ngưỡng thì lý do nằm ở chính sách, không phải sản phẩm.
+**3. Tách khách hiện có và giữ đúng nhóm đáng giữ.** Tách tệp khách theo doanh thu và hành vi: nhóm đang bán thật, nhóm đã ngừng bill, nhóm chưa từng xuất bill. Đợt hết hạn tháng 11-12/2026 {{#52}} là phép thử gần nhất. Nguồn lực chăm sóc và gia hạn nên dồn vào nhóm còn đang bán, không đốt tiền để níu nhóm đã ngừng. Việc tách này cũng giúp kiểm chứng giả thuyết về ngưỡng 1 tỷ: nếu nhóm bỏ đi tập trung ở hộ dưới ngưỡng thì lý do nằm ở chính sách, không phải sản phẩm.
 
 **4. Giảm chi phí vận hành theo đúng quy mô thật.** Công ty đã mở rộng nhân sự theo một làn sóng tạm, nên cần đối chiếu quy mô đội và chi phí cố định với doanh thu định kỳ thực tế, tính đường tiền mặt còn lại, rồi quyết định nên giữ đội nào. Với giá 70–100k/tháng, chỉ cần nhân viên hỗ trợ qua TeamViewer hai lần một tháng là khách đó đã lỗ, nên cần một công cụ tự chẩn đoán ngay trên màn hình thu ngân: một nút bấm để app tự kiểm tra kết nối mạng, cổng máy in, trạng thái chữ ký số, và báo lỗi bằng tiếng Việt dễ hiểu thay vì mã lỗi.
 
@@ -156,7 +156,7 @@ Ngày truy cập các liên kết: 04/11/2026. Các mục [1]-[8] là báo và t
 
 [8] Báo Lào Cai, "Sàn thương mại điện tử sẽ nộp thuế thay người bán hàng online từ 1/7": https://baolaocai.vn/san-thuong-mai-dien-tu-se-nop-thue-thay-nguoi-ban-hang-online-tu-17-post404907.html
 
-[9] {{~203}}
+[9] {{#203}}
 
 [10] Báo Tin tức, "Sức mua nội địa tăng tốc, tổng mức bán lẻ đạt hơn 6,6 triệu tỷ đồng" (số liệu Cục Thống kê, 10 tháng đầu năm 2026): https://baotintuc.vn/suc-mua-noi-dia-tang-toc-tong-muc-ban-le-dat-66-trieu-ty-dong-post1399818.html
 

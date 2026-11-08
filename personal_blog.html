@@ -360,9 +360,9 @@
         // Làm mờ mọi chỗ nhắc tới nguồn nội bộ [9] (cả chú thích trong bài lẫn dòng nguồn ở cuối)
         function blurInternalSource(html) {
             return html
-                // Nội dung nội bộ KHÔNG nằm trong file .md: ở đó chỉ có chỗ giữ chỗ {{~độ_dài}}.
+                // Nội dung nội bộ KHÔNG nằm trong file .md: ở đó chỉ có chỗ giữ chỗ {{#độ_dài}}.
                 // Ở đây sinh chữ giả cùng độ dài rồi làm mờ, nên F12 chỉ thấy chuỗi vô nghĩa.
-                .replace(/\{\{~(\d+)\}\}/g, (m, n) =>
+                .replace(/\{\{#(\d+)\}\}/g, (m, n) =>
                     '<span class="blur-hidden" aria-hidden="true" title="Nội dung nội bộ, không công khai">' +
                     fakeText(Math.min(parseInt(n, 10), 1500)) + '</span>')
                 .replace(/\[9\]/g, (m, offset, str) => {
