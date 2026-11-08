@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghi Chép Cá Nhân — Blog Tối Giản</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        paper: {
+                            light: '#FAF8F5',
+                            card: '#F3EFEA',
+                            dark: '#141414',
+                            darkcard: '#1F1F1F'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <!-- Math Rendering (KaTeX) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    
+    <style>
+        /* Smooth transitions for dark mode & navigation */
+        * {
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease;
+        }
+        /* Custom Reading Progress Bar */
+        #progress-bar {
+            width: 0%;
+            height: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            transition: width 0.1s ease-out;
+        }
+        /* Custom scrollbar for subtle look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(156, 163, 175, 0.4);
+            border-radius: 3px;
+        }
+        /* Typography overrides for post content */
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.0875rem;
+        }
+        /* Nội dung tham chiếu nguồn nội bộ [9]: làm mờ, không chọn/copy được */
+        .blur-hidden {
+            filter: blur(6px);
+            -webkit-user-select: none;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .prose blockquote {
+            border-left: 3px solid currentColor;
+            padding-left: 1.25rem;
+            font-style: italic;
+            opacity: 0.85;
+            margin: 1.75rem 0;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        .prose pre {
+            background: rgba(120, 120, 120, 0.12);
+            border: 1px solid rgba(120, 120, 120, 0.25);
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre;
+        }
+        .prose pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+        }
+        .prose code {
+            background: rgba(120, 120, 120, 0.15);
+            border-radius: 0.25rem;
+            padding: 0.15em 0.4em;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.875rem;
+        }
+        .prose th, .prose td {
+            border: 1px solid rgba(120, 120, 120, 0.25);
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+        .prose th {
+            background: rgba(120, 120, 120, 0.1);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-paper-light dark:bg-paper-dark text-neutral-800 dark:text-neutral-200 font-sans antialiased min-h-full flex flex-col selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-black">
+
+    <!-- Reading Progress Indicator (Visible in detail view) -->
+    <div id="progress-bar" class="bg-neutral-800 dark:bg-neutral-200"></div>
+
+    <!-- Main Container -->
+    <div class="max-w-2xl mx-auto px-5 py-8 sm:py-12 w-full flex-grow flex flex-col">
+
+        <!-- HEADER -->
+        <header class="flex items-center justify-between pb-8 mb-10 border-b border-neutral-300/60 dark:border-neutral-800">
+            <div>
+                <a href="#" onclick="showHome(event)" class="group flex items-center gap-2">
+                    <span class="text-xl font-serif font-bold tracking-tight group-hover:opacity-75 transition-opacity">
+                        Cao Bá Hướng
+                    </span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 font-mono">blog</span>
+                </a>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Ghi chép suy nghĩ, công nghệ & cuộc sống tối giản</p>
+            </div>
+
+            <!-- Top Right Nav Buttons -->
+            <div class="flex items-center gap-3">
+                <button id="about-btn" onclick="toggleAboutModal()" title="Về tôi" class="p-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-lg hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </button>
+                <button id="theme-toggle" onclick="toggleTheme()" title="Chuyển chế độ sáng/tối" class="p-2 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white rounded-lg hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50">
+                    <!-- Sun Icon -->
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <!-- Moon Icon -->
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- VIEW 1: POST LIST (HOME) -->
+        <main id="home-view" class="space-y-8 flex-grow">
+            <!-- Search & Filter Bar -->
+            <div class="space-y-4">
+                <div class="relative">
+                    <input type="text" id="search-input" oninput="filterPosts()" placeholder="Tìm kiếm bài viết..." 
+                        class="w-full pl-9 pr-4 py-2 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300/80 dark:border-neutral-800 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-neutral-500 placeholder-neutral-400">
+                    <svg class="w-4 h-4 absolute left-3 top-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+
+                <!-- Tag List -->
+                <div id="tags-container" class="flex flex-wrap gap-2 text-xs font-mono">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Articles List -->
+            <section class="mt-8 space-y-6">
+                <div class="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 font-mono tracking-wider uppercase">
+                    <span>Danh sách bài viết</span>
+                    <span id="post-count">0 bài viết</span>
+                </div>
+
+                <div id="posts-container" class="space-y-6">
+                    <!-- Dynamic Posts Rendering -->
+                </div>
+            </section>
+        </main>
+
+        <!-- VIEW 2: POST DETAIL -->
+        <article id="detail-view" class="hidden flex-grow space-y-6">
+            <!-- Navigation Back & Utilities -->
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-200 dark:border-neutral-800">
+                <button onclick="showHome(event)" class="inline-flex items-center text-sm font-mono text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Quay lại
+                </button>
+
+                <div class="flex items-center gap-3 text-xs font-mono">
+                    <!-- Font Toggle -->
+                    <button onclick="toggleFont()" title="Đổi font chữ (Serif / Sans)" class="px-2 py-1 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+                        <span id="font-indicator">Font: Serif</span>
+                    </button>
+                    <!-- Copy Link -->
+                    <button onclick="copyArticleLink()" title="Sao chép liên kết" class="p-1.5 rounded bg-neutral-200/60 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Header of Active Post -->
+            <header class="space-y-3 pt-2">
+                <div class="flex items-center gap-3 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+                    <time id="detail-date"></time>
+                    <span>•</span>
+                    <span id="detail-readtime"></span>
+                </div>
+                <h1 id="detail-title" class="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-neutral-900 dark:text-neutral-100 leading-snug"></h1>
+                <div id="detail-tags" class="flex flex-wrap gap-2 pt-1 font-mono text-xs text-neutral-500"></div>
+            </header>
+
+            <!-- Table of Contents -->
+            <nav id="detail-toc" class="hidden text-sm bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 space-y-1.5">
+                <div class="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-2">Mục lục</div>
+                <div id="detail-toc-list"></div>
+            </nav>
+
+            <!-- Content Area -->
+            <div id="detail-content" class="prose font-serif text-neutral-800 dark:text-neutral-200 pt-4 pb-12 border-b border-neutral-200 dark:border-neutral-800">
+                <!-- Content inserted via JS -->
+            </div>
+
+            <!-- Footer / Share in Post -->
+            <div class="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 pt-2 font-mono">
+                <span>Cảm ơn bạn đã đọc.</span>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:underline">Lên đầu trang ↑</button>
+            </div>
+        </article>
+
+        <!-- ABOUT MODAL -->
+        <div id="about-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+            <div class="bg-paper-light dark:bg-paper-darkcard border border-neutral-300 dark:border-neutral-800 rounded-xl p-6 max-w-md w-full shadow-xl space-y-4 relative">
+                <button onclick="toggleAboutModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-black dark:hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="space-y-2">
+                    <h2 class="text-xl font-serif font-bold">Về tác giả</h2>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                        Tôi là <strong>Cao Bá Hướng</strong>, một lập trình viên thích viết lách, tối giản hóa cuộc sống và khám phá những ý tưởng triết học ứng dụng trong kỹ thuật.
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-neutral-200 dark:border-neutral-800 text-xs font-mono space-y-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-neutral-400">Email:</span>
+                        <a href="mailto:caobahuong24@gmail.com" class="text-neutral-700 dark:text-neutral-200 hover:underline">caobahuong24@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-neutral-400">Github:</span>
+                        <a href="https://github.com/caobahuong" target="_blank" rel="noopener" class="text-neutral-700 dark:text-neutral-200 hover:underline">github.com/caobahuong</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-neutral-400">Location:</span>
+                        <span>Hà Nội, Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="fixed bottom-5 right-5 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-black text-xs font-mono px-4 py-2 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-50">
+            Thông báo ở đây
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-16 pt-8 border-t border-neutral-300/60 dark:border-neutral-800 text-xs font-mono text-neutral-500 dark:text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © <span id="current-year"></span> Cao Bá Hướng. Built with HTML & Tailwind.
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#" onclick="showHome(event)" class="hover:underline">Trang chủ</a>
+                <a href="#" onclick="toggleAboutModal(); return false;" class="hover:underline">Tác giả</a>
+                <a href="mailto:caobahuong24@gmail.com" class="hover:underline">Liên hệ</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Articles are loaded dynamically from ./data/*.md (see loadArticles)
+        let articles = [];
+
+        // State Management
+        let selectedTag = 'ALL';
+        let currentFont = 'serif'; // 'serif' or 'sans'
+        let activePostId = null;
+
+        // Parse a single Markdown file with YAML-like frontmatter into an article object
+        function parseArticleMarkdown(raw) {
+            const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+            if (!match) return null;
+
+            const [, frontmatter, body] = match;
+            const meta = {};
+            frontmatter.split('\n').forEach(line => {
+                const idx = line.indexOf(':');
+                if (idx === -1) return;
+                const key = line.slice(0, idx).trim();
+                let value = line.slice(idx + 1).trim();
+
+                if (value.startsWith('[') && value.endsWith(']')) {
+                    value = value.slice(1, -1).split(',').map(v => v.trim());
+                }
+                meta[key] = value;
+            });
+
+            return {
+                id: meta.id,
+                title: meta.title,
+                date: meta.date,
+                readTime: meta.readTime,
+                tags: Array.isArray(meta.tags) ? meta.tags : [],
+                excerpt: meta.excerpt,
+                content: blurInternalSource(marked.parse(body.trim()))
+            };
+        }
+
+        // Sinh chuỗi giả giống chữ thường, độ dài n (không mang thông tin thật)
+        function fakeText(n) {
+            const abc = 'abcdeghiklmnopqrstuvxy';
+            let s = '';
+            while (s.length < n) {
+                const len = 2 + Math.floor(Math.random() * 6);
+                for (let i = 0; i < len; i++) s += abc[Math.floor(Math.random() * abc.length)];
+                s += ' ';
+            }
+            return s.slice(0, n);
+        }
+
+        // Làm mờ mọi chỗ nhắc tới nguồn nội bộ [9] (cả chú thích trong bài lẫn dòng nguồn ở cuối)
+        function blurInternalSource(html) {
+            return html
+                // Nội dung nội bộ KHÔNG nằm trong file .md: ở đó chỉ có chỗ giữ chỗ {{~độ_dài}}.
+                // Ở đây sinh chữ giả cùng độ dài rồi làm mờ, nên F12 chỉ thấy chuỗi vô nghĩa.
+                .replace(/\{\{~(\d+)\}\}/g, (m, n) =>
+                    '<span class="blur-hidden" aria-hidden="true" title="Nội dung nội bộ, không công khai">' +
+                    fakeText(Math.min(parseInt(n, 10), 1500)) + '</span>')
+                .replace(/\[9\]/g, (m, offset, str) => {
+                    const before = str.slice(Math.max(0, offset - 30), offset);
+                    return before.includes('class="blur-hidden">') && !before.includes('</p>')
+                        ? m
+                        : '<span class="blur-hidden">[9]</span>';
+                });
+        }
+
+        // Load all articles listed in data/index.json
+        async function loadArticles() {
+            try {
+                const indexRes = await fetch('data/index.json');
+                const slugs = await indexRes.json();
+
+                const loaded = await Promise.all(slugs.map(async slug => {
+                    const res = await fetch(`data/${slug}.md`);
+                    const raw = await res.text();
+                    return parseArticleMarkdown(raw);
+                }));
+
+                articles = loaded
+                    .filter(Boolean)
+                    .sort((a, b) => new Date(b.date) - new Date(a.date));
+            } catch (err) {
+                console.error('Không thể tải bài viết từ ./data:', err);
+                articles = [];
+            }
+        }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', async () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            initTheme();
+            await loadArticles();
+            renderTags();
+            renderPosts();
+            setupScrollListener();
+            openFromCurrentUrl();
+            window.addEventListener('popstate', openFromCurrentUrl);
+        });
+
+        // Theme Handling
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-toggle-light-icon').classList.remove('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-toggle-dark-icon').classList.remove('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            
+            document.getElementById('theme-toggle-light-icon').classList.toggle('hidden', !isDark);
+            document.getElementById('theme-toggle-dark-icon').classList.toggle('hidden', isDark);
+        }
+
+        // Tag Rendering
+        function renderTags() {
+            const tagsContainer = document.getElementById('tags-container');
+            const allTags = new Set();
+            articles.forEach(a => a.tags.forEach(t => allTags.add(t)));
+
+            let html = `
+                <button onclick="selectTag('ALL')" class="px-2.5 py-1 rounded-md border ${selectedTag === 'ALL' ? 'bg-neutral-800 text-white dark:bg-neutral-200 dark:text-black border-transparent' : 'border-neutral-300 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-neutral-400'}">
+                    Tất cả
+                </button>
+            `;
+
+            allTags.forEach(tag => {
+                const isSelected = selectedTag === tag;
+                html += `
+                    <button onclick="selectTag('${tag}')" class="px-2.5 py-1 rounded-md border ${isSelected ? 'bg-neutral-800 text-white dark:bg-neutral-200 dark:text-black border-transparent' : 'border-neutral-300 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:border-neutral-400'}">
+                        #${tag}
+                    </button>
+                `;
+            });
+
+            tagsContainer.innerHTML = html;
+        }
+
+        function selectTag(tag) {
+            selectedTag = tag;
+            renderTags();
+            filterPosts();
+        }
+
+        // Filter and Render Article List
+        function filterPosts() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            
+            const filtered = articles.filter(post => {
+                const matchesTag = selectedTag === 'ALL' || post.tags.includes(selectedTag);
+                const matchesQuery = post.title.toLowerCase().includes(query) || 
+                                     post.excerpt.toLowerCase().includes(query) ||
+                                     post.tags.some(t => t.toLowerCase().includes(query));
+                return matchesTag && matchesQuery;
+            });
+
+            renderPosts(filtered);
+        }
+
+        function renderPosts(postsToRender = articles) {
+            const container = document.getElementById('posts-container');
+            document.getElementById('post-count').textContent = `${postsToRender.length} bài viết`;
+
+            if (postsToRender.length === 0) {
+                container.innerHTML = `
+                    <div class="py-12 text-center text-neutral-400 text-sm font-mono">
+                        Không tìm thấy bài viết phù hợp.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = postsToRender.map(post => `
+                <article class="group cursor-pointer pb-6 border-b border-neutral-200/70 dark:border-neutral-800/80" onclick="openPost('${post.id}')">
+                    <div class="flex items-center gap-2 text-xs font-mono text-neutral-400 mb-1.5">
+                        <time>${formatDate(post.date)}</time>
+                        <span>•</span>
+                        <span>${post.readTime}</span>
+                    </div>
+                    <h2 class="text-lg font-serif font-bold group-hover:underline text-neutral-900 dark:text-neutral-100 mb-2 leading-snug">
+                        ${post.title}
+                    </h2>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed mb-3">
+                        ${post.excerpt}
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-mono text-neutral-400">
+                        ${post.tags.map(t => `<span>#${t}</span>`).join(' ')}
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Render LaTeX math ($...$ and $$...$$) inside the post content
+        function renderMath() {
+            if (typeof renderMathInElement !== 'function') return;
+            renderMathInElement(document.getElementById('detail-content'), {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+
+        // Force all links inside post content to open in a new tab (avoid leaving the SPA)
+        function openExternalLinksInNewTab() {
+            document.querySelectorAll('#detail-content a[href]').forEach(a => {
+                a.setAttribute('target', '_blank');
+                a.setAttribute('rel', 'noopener noreferrer');
+            });
+        }
+
+        // Slugify a heading's text into a URL-safe anchor id
+        function slugify(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/đ/g, 'd')
+                .replace(/[^a-z0-9\s-]/g, '')
+                .trim()
+                .replace(/\s+/g, '-');
+        }
+
+        // Build a Table of Contents from the H2 headings inside the rendered post
+        function buildTableOfContents() {
+            const toc = document.getElementById('detail-toc');
+            const tocList = document.getElementById('detail-toc-list');
+            const headings = document.querySelectorAll('#detail-content h2');
+
+            if (headings.length < 2) {
+                toc.classList.add('hidden');
+                tocList.innerHTML = '';
+                return;
+            }
+
+            const seen = {};
+            tocList.innerHTML = Array.from(headings).map((h, i) => {
+                let slug = slugify(h.textContent) || 'section-' + i;
+                if (seen[slug]) { seen[slug]++; slug = `${slug}-${seen[slug]}`; } else { seen[slug] = 1; }
+                h.id = slug;
+                return `<a href="#${slug}" onclick="scrollToSection(event, '${slug}')" class="block text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:underline">${i + 1}. ${h.textContent}</a>`;
+            }).join('');
+
+            toc.classList.remove('hidden');
+        }
+
+        // Smooth-scroll to a section without touching the post-sharing URL hash
+        function scrollToSection(e, slug) {
+            e.preventDefault();
+            document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Open Detail Post
+        function openPost(id, updateUrl = true) {
+            const post = articles.find(a => a.id === id);
+            if (!post) return;
+
+            if (updateUrl) {
+                history.pushState({ postId: id }, '', '#' + id);
+            }
+
+            activePostId = id;
+            document.getElementById('detail-title').textContent = post.title;
+            document.getElementById('detail-date').textContent = formatDate(post.date);
+            document.getElementById('detail-readtime').textContent = post.readTime;
+            document.getElementById('detail-content').innerHTML = post.content;
+            openExternalLinksInNewTab();
+            buildTableOfContents();
+
+            document.getElementById('detail-tags').innerHTML = post.tags.map(t =>
+                `<span class="bg-neutral-200/60 dark:bg-neutral-800 px-2 py-0.5 rounded">#${t}</span>`
+            ).join('');
+
+            renderMath();
+
+            // Toggle Views
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgressBar();
+        }
+
+        // Return Home
+        function showHome(e, updateUrl = true) {
+            if (e) e.preventDefault();
+            if (updateUrl) {
+                history.pushState({}, '', window.location.pathname + window.location.search);
+            }
+            activePostId = null;
+            document.getElementById('detail-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = '0%';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Open whichever post (if any) matches the current URL hash
+        function openFromCurrentUrl() {
+            const id = window.location.hash.replace('#', '');
+            if (id && articles.some(a => a.id === id)) {
+                openPost(id, false);
+            } else {
+                showHome(null, false);
+            }
+        }
+
+        // Font Toggle inside Reader
+        function toggleFont() {
+            const content = document.getElementById('detail-content');
+            const indicator = document.getElementById('font-indicator');
+            
+            if (currentFont === 'serif') {
+                content.classList.remove('font-serif');
+                content.classList.add('font-sans');
+                currentFont = 'sans';
+                indicator.textContent = 'Font: Sans';
+            } else {
+                content.classList.remove('font-sans');
+                content.classList.add('font-serif');
+                currentFont = 'serif';
+                indicator.textContent = 'Font: Serif';
+            }
+        }
+
+        // Progress Bar Calculation
+        function setupScrollListener() {
+            window.addEventListener('scroll', updateProgressBar);
+        }
+
+        function updateProgressBar() {
+            if (!activePostId) return;
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = (scrolled || 0) + '%';
+        }
+
+        // About Modal
+        function toggleAboutModal() {
+            const modal = document.getElementById('about-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Copy Article Link
+        function copyArticleLink() {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            
+            showToast('Đã sao chép liên kết bài viết!');
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Date Formatter
+        function formatDate(dateStr) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateStr).toLocaleDateString('vi-VN', options);
+        }
+    </script>
+</body>
+</html>
