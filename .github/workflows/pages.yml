@@ -26,7 +26,7 @@ jobs:
 
       - name: Chặn nếu còn dữ liệu nội bộ
         run: |
-          if grep -rnE "easyposbackoffice|bao_cao_tang_truong" data personal_blog.html; then
+          if grep -rnE "easyposbackoffice|bao_cao_tang_truong" data index.html; then
             echo "Phát hiện thông tin nội bộ, dừng deploy."
             exit 1
           fi
@@ -34,7 +34,7 @@ jobs:
       - name: Chuẩn bị thư mục site
         run: |
           mkdir _site
-          cp personal_blog.html _site/index.html
+          cp index.html _site/index.html
           cp -r data _site/data
 
       - name: Configure Pages
