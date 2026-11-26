@@ -84,7 +84,9 @@ Thành phần này bao gồm toàn bộ để bán hàng chính phục vụ chí
 của ứng dụng và là nhu cầu chính của khách hàng.
 
 Đối với mình gọi đây là:
-> THÀNH PHẦN TỐC ĐỘ QUYẾT ĐỊNH HÀNH VI 
+> THÀNH PHẦN TỐC ĐỘ QUYẾT ĐỊNH HÀNH VI
+
+Ngoài lề: theo mình thói quen chính không chỉ là tốc độ mà còn là sợi dây ràng buộc người dùng với ứng dụng. Do vậy ứng dụng càng giữ được thói quen trong thành phần thực thi thì tỷ lệ rời đi càng giảm.
 
 Đối với thành phần này:
 + "đơn giản" ở đây là "đơn giản" trong thao tác người dùng 
