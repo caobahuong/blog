@@ -74,6 +74,7 @@ Luật vẫn còn đó. Khác ở chỗ người dùng không phải đụng và
 Vế thứ hai hay bị quên. Một thu ngân dùng quen một màn hình sẽ bấm bằng **trí nhớ cơ bắp**, không cần nhìn. Nếu hôm nay mình dời một nút hay đổi thứ tự danh sách sản phẩm, app có thể đẹp hơn, nhưng họ phải nhìn lại, tức là **chậm hơn**.
 
 Vì vậy theo mình, đây nên là thành phần **ít thay đổi nhất**. UI hạn chế đổi, danh sách sản phẩm hiển thị cố định ở mọi thời điểm nếu cùng một yêu cầu. Mọi cải tiến ở phần này đều phải trả giá bằng thói quen của người dùng.
+Ngoài lề một chút - theo mình thói quen chính không chỉ là tốc độ mà còn là sợi dây ràng buộc người dùng với ứng dụng. Do vậy ứng dụng càng giữ được thói quen trong thành phần thực thi thì tỷ lệ rời đi càng giảm.
 
 > Cố gắng để tốc độ của người dùng là nhanh nhất.
 
@@ -103,5 +104,3 @@ Hình dung cuối ngày chủ cửa hàng đối chiếu doanh thu mà số tron
 Ba phần này có cùng đích đến, là để người dùng được **lười suy nghĩ**, nhưng đi bằng ba con đường khác nhau. Một ứng dụng áp một tư duy chung cho cả ba sẽ hỏng ở đâu đó: bắt người bán hàng học cách làm mới giữa giờ cao điểm, hoặc hy sinh độ chính xác của báo cáo để cho nhanh.
 
 Vì vậy thay vì tìm một tư duy chung để xử lý ứng dụng, ta nên **tách nhỏ ra, mỗi phần một tư duy độc lập**.
-
-Câu hỏi để mang về cho sản phẩm của bạn: *nó đang ở phần nào, và bạn đang tối ưu đúng thứ phần đó cần chưa?*
